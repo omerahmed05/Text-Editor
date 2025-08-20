@@ -8,6 +8,7 @@ Finally, there will be a main class that serves as the entry point of the progra
 - If the user types `insert <line number>`, the line is added at the specified line number.
 - If the user types `append <line number> <data>`, data is appended to the specified line number. If no line exists with that line number, we print an error.
 - If the user types `print`, the current state of the text editor is displayed, with each line numbered.  
+- If the user types `save <file name>`, a new file is created in the current directory and the contents of text editor is dispensed into that file.
 - If the user types `delete`, the specified line number is removed from the linked list.  
 
 ## Example Run
@@ -15,7 +16,7 @@ Finally, there will be a main class that serves as the entry point of the progra
 ### Example Run Through
 
 Welcome to MiniText!  
-Commands: insert <line>, insert <line number> <line>, append <line number> <data>, delete <num>, print, exit
+Commands: insert <line>, insert <line number> <line>, append <line number> <data>, delete <num>, print, save <file name>, exit
 
 > insert Hello world
 > insert This is line 2
