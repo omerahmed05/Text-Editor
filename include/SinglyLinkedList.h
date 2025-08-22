@@ -11,5 +11,7 @@ class SinglyLinkedList {
         void print();
         
     private:
-        ListNode* root;
+        ListNode* head;
+        ListNode* tail;
+        int size;
 };
