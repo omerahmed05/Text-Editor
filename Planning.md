@@ -18,15 +18,15 @@ Finally, there will be a main class that serves as the entry point of the progra
 Welcome to MiniText!  
 Commands: insert <line>, insert <line number> <line>, append <line number> <data>, delete <num>, print, save <file name>, exit
 
-> insert Hello world
-> insert This is line 2
-> insert Another line
+> insert "Hello world"
+> insert "This is line 2"
+> insert "Another line"
 > print
 1: Hello world
 2: This is line 2
 3: Another line
 
-> insert 2 Hello
+> insert 2 "Hello"
 > print
 1: Hello world
 2: Hello

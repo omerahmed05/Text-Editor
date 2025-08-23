@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include "SinglyLinkedList.h"
 
 int main() {
     std::cout << "Welcome to MiniText!\n";
@@ -22,10 +23,24 @@ int main() {
 
         std::string command = args[0];
 
+        SinglyLinkedList* lines = new SinglyLinkedList();
+
         if (command == "insert") { 
-            std::cout << "Inserted!\n"; 
+            if (args.size() == 2) {
+                lines->insert(args[1]);
+            } else if (args.size() == 3) {
+                std::string string_to_add = args[2];
+                int index = std::stoi(args[1]); // convert string to int
+                lines->insert(string_to_add, index);
+            } else {
+                std::cout << "Invalid number of arguments.\n";
+            }
         } else if (command == "append") { 
-            std::cout << "Appended!\n"; 
+            int index = std::stoi(args[1]); // convert string to int
+            std::string line_to_add = args[2];
+
+            ListNode* line_at_index = lines->getNode(index);
+            line_at_index->value.append(line_to_add);
         } else if (command == "delete") { 
             std::cout << "Deleted!\n"; 
         } else if (command == "print") { 
