@@ -16,7 +16,7 @@ Finally, there will be a main class that serves as the entry point of the progra
 ### Example Run Through
 
 Welcome to MiniText!  
-Commands: insert <line>, insert <line number> <line>, append <line number> <data>, delete <num>, print, save <file name>, exit
+Commands: insert <line>, insert <line number> <line>, append <line number> <data>, delete <num>, clear <num>, print, save <file name>, exit
 
 > insert "Hello world"
 > insert "This is line 2"

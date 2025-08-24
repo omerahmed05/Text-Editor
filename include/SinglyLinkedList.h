@@ -9,7 +9,9 @@ class SinglyLinkedList {
         void insert(std::string value, int index);
         ListNode* getNode(int index);
         void deleteNode(int index);
-        void print();
+        void print(std::ostream& os);
+        int getSize();
+        void clearData(int index);
     private:
         ListNode* head;
         ListNode* tail;

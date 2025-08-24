@@ -14,8 +14,12 @@ SinglyLinkedList::SinglyLinkedList() {
  * Destructor
  */
 SinglyLinkedList::~SinglyLinkedList() {
-    for (int i = 0; i < size; i++) {
-        deleteNode(i);
+    ListNode* curr = head;
+
+    while (curr) {
+        ListNode* next = curr->next;
+        delete curr;
+        curr = next;
     }
 }
 
@@ -129,10 +133,28 @@ void SinglyLinkedList::deleteNode(int index) {
 /**
  * Print the current linked list
  */
-void SinglyLinkedList::print() {
+void SinglyLinkedList::print(std::ostream& os) {
     ListNode* curr = head;
     for (int i = 0; i < size; i++) {
-        std::cout << i+1 << ": " << curr->value << "\n";
+        os << i+1 << ": " << curr->value << "\n";
         curr = curr->next;
+    }
+}
+
+int SinglyLinkedList::getSize() {
+    return size;
+}
+
+void SinglyLinkedList::clearData(int index) {
+    ListNode* curr = head;
+
+    int i = 0;
+    while (curr && i < index) {
+        curr = curr->next;
+        i++;
+    }
+
+    if (curr != nullptr) {
+        curr->value = "";
     }
 }
