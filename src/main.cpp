@@ -4,7 +4,7 @@
 #include "SinglyLinkedList.h"
 #include <fstream>
 
-std::string getQuotedText(const std::string &input, size_t startPos)
+std::string_view getQuotedText(std::string_view input, size_t startPos)
 {
     size_t firstQuote = input.find('"', startPos);
 
@@ -21,7 +21,8 @@ std::string getQuotedText(const std::string &input, size_t startPos)
     }
 
     return input.substr(firstQuote + 1, secondQuote - firstQuote - 1); // extract data inside the quotes, excluding quotes
-}
+                                                                       // std::string::subr takse a starting index and a length, so we have to calculate the length for the second argument.
+}                                                       
 
 int main()
 {
@@ -49,6 +50,14 @@ int main()
                 index -= 1; // convert to 0-based index 
                 std::string text;
                 std::getline(string_stream >> std::ws, text); // read the rest of the line
+                
+                size_t pos = text.find('"');
+                
+                if (pos == std::string::npos) {
+                    std::cout << "The line you want to insert must be surrounded in quotes.\n";
+                    continue;
+                }
+                text = getQuotedText(text, 0);
                 lines->insert(text, index);
             }
             else
@@ -56,6 +65,15 @@ int main()
                 string_stream.clear(); // clear fail state
                 std::string text;
                 std::getline(string_stream >> std::ws, text);
+
+                size_t pos = text.find('"');
+                
+                if (pos == std::string::npos) {
+                    std::cout << "The line you want to insert must be surrounded in quotes.\n";
+                    continue;
+                }
+                
+                text = getQuotedText(text, 0);
                 lines->insert(text);
             }
         }
