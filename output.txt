@@ -1,3 +1,0 @@
-1: 
-2: byebye
-3: hello
